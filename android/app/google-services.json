@@ -1,0 +1,29 @@
+{
+  "project_info": {
+    "project_number": "847597326478",
+    "project_id": "notification-v1-http-api",
+    "storage_bucket": "notification-v1-http-api.firebasestorage.app"
+  },
+  "client": [
+    {
+      "client_info": {
+        "mobilesdk_app_id": "1:847597326478:android:3bff1d7f88d2c7a621f9df",
+        "android_client_info": {
+          "package_name": "com.bfa.push_notification_v1httpapi"
+        }
+      },
+      "oauth_client": [],
+      "api_key": [
+        {
+          "current_key": "AIzaSyBPF-2IJBAlekegYhqKn-2OkdpoJJ-OWAs"
+        }
+      ],
+      "services": {
+        "appinvite_service": {
+          "other_platform_oauth_client": []
+        }
+      }
+    }
+  ],
+  "configuration_version": "1"
+}
