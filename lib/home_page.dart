@@ -1,5 +1,6 @@
 import 'package:flutter/material.dart';
 import 'package:push_notification_v1httpapi/api/access_token.dart';
+import 'package:push_notification_v1httpapi/services/firebase_cm.dart';
 
 class HomePage extends StatefulWidget {
   const HomePage({super.key});
@@ -26,6 +27,8 @@ class _HomePageState extends State<HomePage> {
                   } else {
                     print("Failed to retrieve token");
                   }
+
+                  FirebaseCM.sendTokenNotification(token, 'title', 'message');
                 },
                 child: Text('Send'))
           ],
