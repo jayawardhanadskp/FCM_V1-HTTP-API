@@ -1,7 +1,10 @@
 import 'dart:async';
+import 'dart:convert';
 
 import 'package:firebase_messaging/firebase_messaging.dart';
 import 'package:flutter_local_notifications/flutter_local_notifications.dart';
+import 'package:http/http.dart' as http;
+import 'package:push_notification_v1httpapi/api/access_token.dart';
 
 Future<void> handleBg(RemoteMessage message) async {
   print(message);
@@ -70,5 +73,37 @@ class FirebaseCM {
 
   void subscribeToTopic() {
     FirebaseMessaging.instance.subscribeToTopic('notification');
+  }
+
+  static Future<void> sendTokenNotification(
+      String token, String title, String message) async {
+    try {
+      final body = {
+        'message': {
+          'token': token,
+          'notification': {
+            'body': message,
+            'title': title,
+          }
+        }
+      };
+
+      String url = 'POST https://fcm.googleapis.com/v1/projects/notification-v1-http-api/messages:send';
+
+      String accessKey = await AccessToken().getAccesToken();
+
+      await http
+          .post(Uri.parse(url),
+              headers: {
+                'Content-Type': 'application/json',
+                'Authorization': 'Bearer $accessKey',
+              },
+              body: jsonEncode(body))
+          .then((value) {
+        print('Status code ${value.statusCode}');
+      });
+    } catch (e) {
+      print('error : $e');
+    }
   }
 }
