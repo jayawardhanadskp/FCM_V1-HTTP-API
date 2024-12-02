@@ -7,7 +7,7 @@ import 'package:http/http.dart' as http;
 import 'package:push_notification_v1httpapi/api/access_token.dart';
 
 Future<void> handleBg(RemoteMessage message) async {
-  print(message);
+  print('incomming message $message');
 }
 
 class FirebaseCM {
@@ -38,6 +38,7 @@ class FirebaseCM {
       print('User has denied permissions');
     }
     final fcmToken = await firebaseMessaging.getToken();
+    print('FCM TOKEN : $fcmToken');
 
     FirebaseMessaging.onBackgroundMessage(handleBg);
     initPushNotification();
@@ -88,10 +89,14 @@ class FirebaseCM {
         }
       };
 
-      String url = 'POST https://fcm.googleapis.com/v1/projects/notification-v1-http-api/messages:send';
+      // Fixed URL
+      String url =
+          'https://fcm.googleapis.com/v1/projects/notification-v1-http-api/messages:send';
 
+      // Retrieve access token
       String accessKey = await AccessToken().getAccesToken();
 
+      // Make POST request with the fixed URL
       await http
           .post(Uri.parse(url),
               headers: {
