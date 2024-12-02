@@ -1,16 +1,21 @@
-# push_notification_v1httpapi
+# Push Notification with Firebase Cloud Messaging v1
 
-A new Flutter project.
+This Flutter app demonstrates how to use Firebase Cloud Messaging (FCM) v1 to send push notifications without the need for a custom backend.
 
-## Getting Started
+## Features:
+- Fetches FCM tokens from Firebase.
+- Sends notifications directly using Firebase Cloud Messaging.
+- No custom backend required.
 
-This project is a starting point for a Flutter application.
+## Tech Stack:
+- **Flutter v3.x**
+- **Firebase Cloud Messaging v1**
+- **Firebase SDK (for messaging)**
 
-A few resources to get you started if this is your first Flutter project:
+## Setup:
 
-- [Lab: Write your first Flutter app](https://docs.flutter.dev/get-started/codelab)
-- [Cookbook: Useful Flutter samples](https://docs.flutter.dev/cookbook)
+### 1. Clone the Repository:
 
-For help getting started with Flutter development, view the
-[online documentation](https://docs.flutter.dev/), which offers tutorials,
-samples, guidance on mobile development, and a full API reference.
+```bash
+git clone https://github.com/jayawardhanadskp/FCM_V1-HTTP-API.git
+cd FCM_V1-HTTP-API
